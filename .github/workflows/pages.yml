@@ -26,7 +26,7 @@ jobs:
       - name: Prepare static website
         run: |
           mkdir -p public
-          cp index.html calm.jpg together.jpg care.jpg divan-logo.png logo.svg public/
+          cp index.html calm.jpg together.jpg care.jpg divan-logo.png logo.svg cover.svg calm.svg close.svg care.svg public/
           touch public/.nojekyll
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
