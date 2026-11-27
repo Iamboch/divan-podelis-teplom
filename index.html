@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f0f0eb">
+<meta name="description" content="Новогодняя открытка divan.ru. Выберите тёплое пожелание и передайте его дальше.">
+<meta property="og:title" content="Поделись теплом — открытка divan.ru">
+<meta property="og:description" content="Немного тепла в новом году. Откройте открытку и передайте её дальше.">
+<title>Поделись теплом — divan.ru × Антон тут рядом</title>
+<style>
+@font-face{font-family:Booklet;src:local("Booklet Sans"),local("Booklet Sans Regular");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Booklet;src:local("Booklet Sans Light"),local("Booklet Sans");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:Booklet;src:local("Booklet Sans Medium"),local("Booklet Sans");font-weight:500;font-style:normal;font-display:swap}
+:root{--paper:#f0f0eb;--ink:#141414;--muted:#696a64;--line:#d9d9d1;--cream:#faf9f4;--accent:#e7d6c3;--olive:#728264;--btn:#171717}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Booklet,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,a{font-family:inherit}button{cursor:pointer}a{color:inherit}
+:focus-visible{outline:3px solid #718566;outline-offset:4px}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:27px clamp(26px,5.8vw,96px);border-bottom:1px solid var(--line)}
+.brand img{width:133px;height:auto;display:block}
+.header-right{display:flex;align-items:center;gap:15px;font-size:13px;color:var(--muted)}
+.header-right .dot{width:6px;height:6px;border-radius:50%;background:#98a98e}
+.page{max-width:1510px;margin:0 auto;padding:44px clamp(26px,5.8vw,96px) 50px;min-height:calc(100svh - 85px);display:grid;grid-template-columns:minmax(360px,1fr) minmax(470px,570px);gap:clamp(38px,7vw,135px);align-items:center}
+.content{align-self:center;max-width:630px;min-width:0;padding:12px 0 24px}
+.topline{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:15px;letter-spacing:.005em;margin:0 0 clamp(35px,7vh,90px)}
+.topline .small-oval{padding:7px 12px;border:1px solid #cacbc2;border-radius:100px;color:#333}
+#eyebrow{font-size:13px;margin:0 0 16px;color:#686c63}
+h1{margin:0;max-width:600px;font-weight:300;font-size:clamp(55px,5.5vw,91px);line-height:.985;letter-spacing:-.055em}
+h1 em{font-style:normal;color:#81917c}h1 .tiny-heart{display:inline-block;font-size:.43em;transform:rotate(-12deg) translateY(-.4em);vertical-align:top;margin-left:5px}
+.lead{font-size:clamp(17px,1.55vw,21px);font-weight:400;line-height:1.42;max-width:425px;margin:25px 0 36px;color:#484d48}
+.action-row{display:flex;align-items:center;gap:17px;flex-wrap:wrap}
+.btn{appearance:none;border:1px solid transparent;border-radius:100px;padding:18px 27px;min-height:56px;font-size:16px;line-height:1.1;font-weight:500;display:inline-flex;justify-content:center;align-items:center;gap:17px;transition:transform .2s,background .2s,color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(0)}.btn-dark{background:#171717;color:#fff}.btn-dark:hover{background:#454a40}.btn-light{background:transparent;color:#181818;border:1px solid #b9bbb3}.btn-light:hover{background:white}.btn-link{border:0;color:#353c34;background:transparent;padding:8px 0;font-size:15px;text-decoration:underline;text-underline-offset:5px;cursor:pointer}.btn-icon{font-size:21px;line-height:0;font-weight:300;position:relative;top:-1px}
+.note{color:#8a8b85;font-size:12px;line-height:1.4;margin:33px 0 0}
+.stage-wrap{position:relative;justify-self:end;width:min(100%,565px);min-width:0}
+.stage-wrap:before{content:"";position:absolute;width:calc(100% + 42px);height:calc(100% + 42px);left:-21px;top:-21px;border:1px solid #dcdcd2;border-radius:45px;pointer-events:none}
+.stage{border-radius:30px;background:#ebe7dc;overflow:hidden;position:relative;min-height:0;box-shadow:0 20px 65px rgba(48,49,39,.07)}
+.stage-header{position:absolute;top:27px;left:29px;right:29px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#43463d}
+.stage-header .capsule{background:rgba(255,255,251,.67);padding:8px 13px;border-radius:40px;backdrop-filter:blur(5px)}
+.stage-header .num{font-size:12px;color:#5c5d55}
+.scene-holder{height:578px;width:100%;position:absolute;inset:26px 0 0;display:flex;align-items:center;justify-content:center}
+.scene-holder svg{width:115%;height:auto;max-height:100%;display:block;overflow:visible;transform-origin:center center;animation:rise .8s cubic-bezier(.21,.82,.27,1) both}
+.stage-footer{position:absolute;bottom:28px;left:29px;right:29px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:2;color:#585a53;font-size:12px}
+.stage-footer .cross{font-size:16px;color:#a5a99b;margin:0 5px}
+.gift-pill{display:flex;gap:8px;align-items:center;border:1px solid rgba(40,40,35,.18);border-radius:50px;padding:8px 12px;background:rgba(249,249,246,.48)}
+.gift-pill:before{content:'';width:6px;height:6px;background:#9cae83;border-radius:50%}
+.mood-options{display:grid;grid-template-columns:1fr;gap:10px;max-width:460px;margin:7px 0 26px}
+.mood{border:1px solid #d2d3ca;background:#f5f5ef;color:#1b201b;text-align:left;border-radius:17px;padding:14px 17px;display:flex;align-items:center;gap:15px;transition:all .2s ease;min-height:64px}
+.mood:hover{background:white;transform:translateX(2px)}.mood.selected{border-color:#87927d;background:#e6e9de;box-shadow:inset 0 0 0 1px #87927d}
+.mood .mood-icon{width:39px;height:39px;border-radius:50%;background:#e1d2b5;display:flex;align-items:center;justify-content:center;flex:none;font-size:20px;font-weight:300}
+.mood:nth-child(2) .mood-icon{background:#d9d6e8}.mood:nth-child(3) .mood-icon{background:#d2dfd1}
+.mood strong{display:block;font-size:17px;font-weight:500}.mood small{font-size:12px;color:#77796e}.mood .tick{margin-left:auto;font-size:21px;color:#677a62;opacity:0}.mood.selected .tick{opacity:1}
+.choice-subline{font-size:13px;color:#6c7066;margin-top:0;margin-bottom:15px}
+#step-1,#step-2,#step-3{display:none;animation:fadein .32s ease both}#step-1.active,#step-2.active,#step-3.active{display:block}
+.card-message{display:none}.stage.is-final .card-message{display:block;position:absolute;z-index:4;left:22px;right:22px;top:76px;text-align:center;pointer-events:none}
+.card-message .over{font-size:12px;letter-spacing:.03em;color:#434a40}.card-message h2{font-weight:300;font-size:clamp(34px,3.1vw,49px);line-height:1.08;letter-spacing:-.04em;margin:10px 0 0}.stage.is-final .scene-holder{top:110px;height:480px;opacity:.85}.stage.is-final .stage-header .capsule{opacity:0}
+.finished-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.finished-actions .btn{padding:16px 22px;font-size:15px;min-height:52px}
+.charity{margin-top:30px;padding:21px 0 0;border-top:1px solid #d5d7cd;max-width:515px}.charity .charity-title{font-size:14px;font-weight:500;margin:0 0 7px}.charity .charity-description{font-size:14px;color:#6c7065;margin:0 0 11px;line-height:1.43}
+.charity a{font-size:14px;text-decoration:underline;text-underline-offset:4px}.micro-copy{font-size:12px;color:#777c71;margin-top:11px}
+.toast{position:fixed;z-index:99;bottom:30px;left:50%;transform:translate(-50%,20px);background:#222921;color:white;padding:13px 19px;border-radius:15px;font-size:14px;opacity:0;pointer-events:none;transition:all .25s;max-width:min(calc(100vw - 38px),480px);text-align:center}.toast.visible{transform:translate(-50%,0);opacity:1}
+.footer{max-width:1510px;margin:0 auto;padding:0 clamp(26px,5.8vw,96px) 24px;display:flex;justify-content:space-between;font-size:12px;color:#96978e;gap:12px}
+.fade-snow{animation:snow 5s linear infinite;transform-origin:center}.fade-snow:nth-of-type(even){animation-duration:7s;animation-delay:-2s}
+@keyframes snow{0%{transform:translateY(-20px);opacity:0}15%{opacity:.55}75%{opacity:.35}100%{transform:translateY(80px);opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes fadein{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1060px){.page{grid-template-columns:minmax(290px,1fr) minmax(365px,470px);gap:40px}.stage{min-height:540px}.scene-holder{height:520px}.content h1{font-size:clamp(52px,6vw,75px)}.card-message h2{font-size:39px}}
+@media(max-width:790px){#step-3 .stage-wrap{margin:16px 0 27px;width:100%} .site-header{padding:18px 24px}.brand img{width:120px}.header-right{font-size:11px}.page{display:flex;flex-direction:column;align-items:stretch;gap:30px;padding:20px 20px 40px;min-height:auto}.content{max-width:580px;width:100%;margin:0 auto;padding:0}.topline{margin:3px 0 31px}h1{font-size:clamp(51px,10vw,76px);line-height:.99}.lead{font-size:17px;margin:17px 0 22px;max-width:450px}.stage-wrap{align-self:center;width:min(100%,520px);order:2}.stage{min-height:510px;border-radius:22px}.scene-holder{height:490px;inset:25px 0 0}.stage-wrap:before{display:none}.content{order:1}.note{margin:14px 0 0}.footer{padding:0 20px 18px}.page:has(#step-2.active) .stage-wrap,.page:has(#step-3.active) .stage-wrap{order:2}.mood-options{margin-bottom:17px}.charity{margin-top:23px}}
+@media(max-width:450px){.page{padding:22px 15px 35px;gap:20px}.site-header{padding:17px 17px}.header-right{gap:8px}.topline{margin-bottom:22px}h1{font-size:53px}.lead{font-size:16px;margin:17px 0 20px}.stage{min-height:410px}.scene-holder{height:400px;inset:13px 0 0}.stage-header{left:17px;right:17px;top:16px}.stage-footer{left:17px;right:17px;bottom:17px;font-size:11px}.stage.is-final .scene-holder{top:106px;height:310px}.stage.is-final .card-message{top:75px}.stage.is-final .card-message h2{font-size:34px}.stage.is-final .card-message .over{font-size:11px}.btn{min-height:51px;padding:16px 23px;font-size:15px}.mood strong{font-size:15px}.mood{padding:10px 11px;min-height:56px}.mood .mood-icon{width:37px;height:37px}.footer{font-size:11px}.finished-actions{gap:9px}.finished-actions .btn{width:100%}#step-3 .btn-link{padding:8px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<style id="kv-override">
+:root{--paper:#f0f0eb;--ink:#151515;--line:#d6d6d0}
+.page{grid-template-columns:minmax(320px,1fr) minmax(420px,620px);gap:clamp(38px,5vw,105px)}
+.stage{min-height:0;aspect-ratio:1/1;border-radius:5px;background:#45362d;box-shadow:0 22px 68px rgba(29,28,25,.12)}
+.stage-wrap{width:min(100%,620px)}
+.stage-wrap:before{border-radius:7px;left:-13px;top:-13px;width:calc(100% + 26px);height:calc(100% + 26px)}
+.postcard-canvas{display:block;width:100%;height:100%;object-fit:cover}
+.stage-header,.stage-footer,.card-message,.scene-holder{display:none!important}
+.mood .mood-icon{height:57px;width:57px;border-radius:9px;flex:none;background-size:cover;background-position:center;box-shadow:0 1px 3px rgba(10,10,10,.06)}
+.mood[data-wish="calm"] .mood-icon{background-image:url("calm.jpg");font-size:0}
+.mood[data-wish="close"] .mood-icon{background-image:url("together.jpg");font-size:0}
+.mood{padding:11px;min-height:80px;border-radius:12px;gap:14px}
+.mood-options{max-width:500px}
+.mood strong{font-size:16px}
+.mood small{display:block;margin-top:5px}
+@media(max-width:1060px){.page{grid-template-columns:minmax(290px,1fr) minmax(350px,510px)}.stage{min-height:0}}
+@media(max-width:790px){.page{display:flex;padding:18px 18px 36px;gap:26px}.stage-wrap{width:min(100%,580px)}.stage{min-height:0}.stage-wrap:before{display:none}#step-3 .stage-wrap{margin:12px 0 24px}}
+@media(max-width:450px){.page{padding:18px 15px 35px;gap:22px}.stage{min-height:0}.mood{min-height:76px}.stage-wrap{width:100%}h1{font-size:clamp(48px,11vw,63px)}.finished-actions .btn{width:100%}}
+</style>
+</head>
+<body>
+<header class="site-header">
+<a class="brand" href="https://www.divan.ru/anton-tut-ryadom" title="Коллекция divan.ru × Антон тут рядом" target="_blank" rel="noopener"><img alt="divan.ru" src="divan-logo.png"></a>
+<div class="header-right"><span class="dot"></span><span>Новогодняя открытка</span><span>·</span><span>2027</span></div>
+</header>
+<main class="page">
+<section class="content" aria-live="polite">
+<div class="topline"><span class="small-oval">divan.ru × Антон тут рядом</span><span id="step-count">01 / 03</span></div>
+<div id="step-1" class="active">
+<p id="eyebrow">Небольшое новогоднее чудо</p>
+<h1>Тепло,<br>которым <em>хочется</em> делиться<span class="tiny-heart">♡</span></h1>
+<p class="lead">Спасибо, что были с нами в этом году. Мы придумали маленькую открытку, чтобы добрые слова могли путешествовать дальше.</p>
+<div class="action-row"><button class="btn btn-dark" id="start">Передать тепло <span class="btn-icon" aria-hidden="true">↗</span></button></div>
+<p class="note">Небольшое путешествие в три шага · меньше минуты</p>
+</div>
+<div id="step-2">
+<p id="eyebrow">Выберите то, чем хочется поделиться</p>
+<h1>Что передадим <em>дальше?</em></h1>
+<p class="lead">У каждого тепла — свой характер. Выберите пожелание: маленькая комната изменится вместе с ним.</p>
+<div class="mood-options" role="radiogroup" aria-label="Выберите пожелание">
+<button class="mood selected" role="radio" aria-checked="true" data-wish="calm"><span class="mood-icon">✳</span><span><strong>Побольше спокойных вечеров</strong><small>Свет потише, дела подождут</small></span><span class="tick" aria-hidden="true">✓</span></button>
+<button class="mood" role="radio" aria-checked="false" data-wish="close"><span class="mood-icon">♡</span><span><strong>Побольше встреч с близкими</strong><small>Время побыть вместе</small></span><span class="tick" aria-hidden="true">✓</span></button>
+</div>
+<div class="action-row"><button class="btn btn-dark" id="create">Собрать открытку <span class="btn-icon" aria-hidden="true">↗</span></button><button class="btn-link" id="back-first">Назад</button></div>
+</div>
+<div id="step-3">
+<p id="final-eyebrow">Ваше пожелание готово</p>
+<h1 id="final-headline">Можно <em>делиться.</em></h1>
+<p class="lead" id="final-lead">Тепла хватит на всех. Отправьте эту открытку тому, кому хочется сказать что-то хорошее.</p>
+<div class="finished-actions"><button class="btn btn-dark" id="share"><span id="share-label">Поделиться</span> <span class="btn-icon" aria-hidden="true">↗</span></button><button class="btn btn-light" id="download">Скачать PNG <span aria-hidden="true">↓</span></button></div>
+<div class="action-row" style="margin-top:12px"><button class="btn-link" id="copy">Скопировать ссылку</button><button class="btn-link" id="back-choice">Другое пожелание</button></div>
+<div class="charity"><p class="charity-title">Тепло становится больше, когда им делятся.</p><p class="charity-description">Вместе с фондом «Антон тут рядом» мы создаём предметы, которые смягчают реальность. Поддержать программы фонда можно в любой момент.</p><a target="_blank" rel="noopener" href="https://antontut.ru/payments/">Поддержать фонд ↗</a><span style="margin:0 10px;color:#a0a29a">·</span><a target="_blank" rel="noopener" href="https://www.divan.ru/anton-tut-ryadom">О коллекции ↗</a></div>
+</div>
+</section>
+<div class="stage-wrap">
+<section class="stage" id="stage" aria-label="Новогодняя открытка с оригинальным интерьерным кадром">
+<div class="stage-header"><span class="capsule">Маленький мир заботы</span><span class="num">С НОВЫМ 2027 ГОДОМ</span></div>
+<div class="card-message" id="card-message"><div class="over">В новом году желаем</div><h2 id="card-title">побольше спокойных<br>вечеров</h2></div>
+<canvas class="postcard-canvas" width="2048" height="2048" id="postcard-canvas" aria-label="Предпросмотр открытки"></canvas>
+<div class="stage-footer"><span>Тепло всегда тут рядом</span><span class="gift-pill">создано с заботой</span></div>
+</section>
+</div>
+</main>
+<footer class="footer"><span>divan.ru × фонд «Антон тут рядом»</span><span>Интерактивная открытка · 2027</span></footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+'use strict';
+const WISHES={
+ calm:{short:'побольше спокойных вечеров',lines:['Побольше','спокойных вечеров'],share:'Пусть в новом году будет побольше спокойных вечеров.',color:'#d8ded0',glow:'#ffe1a5'},
+ close:{short:'побольше встреч с близкими',lines:['Побольше встреч','с близкими'],share:'Пусть в новом году будет побольше встреч с близкими.',color:'#ead8ce',glow:'#ffb994'},
+ soft:{short:'побольше мягких моментов',lines:['Побольше мягких','моментов'],share:'Пусть в новом году будет побольше мягких моментов.',color:'#dee4d3',glow:'#fce0a3'}
+};
+const PHOTO={calm:'calm.jpg',close:'together.jpg'};
+const PHOTO_IMAGE={};
+let current='calm',step=1,received=false,toastTimer=null;
+const $=id=>document.getElementById(id);
+function loadImg(src){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=src;});}
+function toast(s){const el=$('toast');el.textContent=s;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),3400);}
+function drawCard(){
+ const cv=$('postcard-canvas'),ctx=cv.getContext('2d');
+ ctx.clearRect(0,0,2048,2048);
+ const im=PHOTO_IMAGE[current];
+ if(!im){ctx.fillStyle='#d9d6ce';ctx.fillRect(0,0,2048,2048);return;}
+ ctx.drawImage(im,0,0,2048,2048);
+ if(step!==3)return;
+ const calm=current==='calm';
+ const gradient=ctx.createLinearGradient(0,0,0,790);
+ if(calm){gradient.addColorStop(0,'rgba(21,16,17,.46)');gradient.addColorStop(1,'rgba(21,16,17,0)');}
+ else {gradient.addColorStop(0,'rgba(250,240,224,.62)');gradient.addColorStop(1,'rgba(250,240,224,0)');}
+ ctx.fillStyle=gradient;ctx.fillRect(0,0,2048,790);
+ const x=112;
+ ctx.save();
+ ctx.fillStyle='#f0f0eb';
+ ctx.beginPath();ctx.roundRect(x,101,300,100,50);ctx.fill();
+ const logo=PHOTO_IMAGE.logo;
+ if(logo)ctx.drawImage(logo,142,129,235,235*logo.height/logo.width);
+ ctx.fillStyle=calm?'#faf5ea':'#2b2320';
+ ctx.textAlign='right';ctx.font='500 37px Booklet,Arial,sans-serif';
+ ctx.fillText('\u0421 \u041d\u043e\u0432\u044b\u043c 2027 \u0433\u043e\u0434\u043e\u043c!',1940,165);
+ ctx.textAlign='left';
+ ctx.font='300 112px Booklet,Arial,sans-serif';
+ ctx.shadowColor=calm?'rgba(15,15,15,.35)':'rgba(255,255,255,.1)';ctx.shadowBlur=calm?17:0;
+ const lines=WISHES[current].lines;
+ const maxWidth=1810;
+ for(let i=0;i<lines.length;i++)ctx.fillText(lines[i],x,350+i*132,maxWidth);
+ ctx.shadowBlur=0;
+ ctx.restore();
+}
+function updateScene(){drawCard();}
+function repositionStage(){const stage=document.querySelector('.stage-wrap'),content=document.querySelector('.content');if(step===3&&window.innerWidth<=790){document.querySelector('.finished-actions').before(stage);}else{content.after(stage);}}
+function receiverView(on){$('final-eyebrow').textContent=on?'\u0414\u043b\u044f \u0432\u0430\u0441 \u0435\u0441\u0442\u044c \u043f\u043e\u0436\u0435\u043b\u0430\u043d\u0438\u0435':'\u0412\u0430\u0448\u0435 \u043f\u043e\u0436\u0435\u043b\u0430\u043d\u0438\u0435 \u0433\u043e\u0442\u043e\u0432\u043e';$('final-headline').innerHTML=on?'\u0412\u0430\u043c \u043f\u0435\u0440\u0435\u0434\u0430\u043b\u0438 <em>\u0442\u0435\u043f\u043b\u043e.</em>':'\u041c\u043e\u0436\u043d\u043e <em>\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f.</em>';$('final-lead').textContent=on?'\u041a\u0442\u043e-\u0442\u043e \u0432\u044b\u0431\u0440\u0430\u043b \u0434\u043b\u044f \u0432\u0430\u0441 \u0434\u043e\u0431\u0440\u044b\u0435 \u0441\u043b\u043e\u0432\u0430. \u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u0435 \u043e\u0442\u043a\u0440\u044b\u0442\u043a\u0443 \u0438\u043b\u0438 \u043f\u0435\u0440\u0435\u0434\u0430\u0439\u0442\u0435 \u0442\u0435\u043f\u043b\u043e \u0434\u0430\u043b\u044c\u0448\u0435.':'\u0422\u0435\u043f\u043b\u0430 \u0445\u0432\u0430\u0442\u0438\u0442 \u043d\u0430 \u0432\u0441\u0435\u0445. \u041e\u0442\u043f\u0440\u0430\u0432\u044c\u0442\u0435 \u044d\u0442\u0443 \u043e\u0442\u043a\u0440\u044b\u0442\u043a\u0443 \u0442\u043e\u043c\u0443, \u043a\u043e\u043c\u0443 \u0445\u043e\u0447\u0435\u0442\u0441\u044f \u0441\u043a\u0430\u0437\u0430\u0442\u044c \u0447\u0442\u043e-\u0442\u043e \u0445\u043e\u0440\u043e\u0448\u0435\u0435.';$('share-label').textContent=on?'\u041f\u0435\u0440\u0435\u0434\u0430\u0442\u044c \u0434\u0430\u043b\u044c\u0448\u0435':'\u041f\u043e\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f';}
+function setStep(n){step=n;if(n===2&&received){received=false;receiverView(false);}for(let i=1;i<=3;i++)$('step-'+i).classList.toggle('active',i===n);$('step-count').textContent=String(n).padStart(2,'0')+' / 03';$('stage').classList.toggle('is-final',n===3);if(n===3&&/^https?:$/.test(location.protocol))history.replaceState(null,'','?wish='+current);else if(n===1&&/^https?:$/.test(location.protocol))history.replaceState(null,'',location.pathname);drawCard();repositionStage();if(window.innerWidth<=790)window.scrollTo({top:0,behavior:'smooth'});}
+function setWish(w){if(!PHOTO[w])return;current=w;document.querySelectorAll('.mood').forEach(el=>{const on=el.dataset.wish===w;el.classList.toggle('selected',on);el.setAttribute('aria-checked',String(on));});drawCard();}
+function shareLink(){if(!/^https?:$/.test(location.protocol))return null;const u=new URL(location.href);u.search='?wish='+encodeURIComponent(current);u.hash='';return u.toString();}
+async function writeClipboard(s){try{await navigator.clipboard.writeText(s);return true;}catch(e){try{const el=document.createElement('textarea');el.value=s;el.style.position='fixed';el.style.opacity=0;document.body.append(el);el.select();const ok=document.execCommand('copy');el.remove();return ok;}catch(x){return false;}}}
+async function pngBlob(){drawCard();return new Promise((resolve,reject)=>$('postcard-canvas').toBlob(b=>b?resolve(b):reject(Error('PNG failed')),'image/png'));}
+async function savePNG(){try{const blob=await pngBlob();const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='divan-podelis-teplom-'+current+'.png';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3500);toast('\u041e\u0442\u043a\u0440\u044b\u0442\u043a\u0430 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0430 \u0432 PNG');}catch(e){console.error(e);toast('PNG export failed');}}
+async function shareCard(){try{const blob=await pngBlob();const file=new File([blob],'divan-teplo-'+current+'.png',{type:'image/png'});const text=WISHES[current].share+' divan.ru';const link=shareLink();if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'\u041f\u043e\u0434\u0435\u043b\u0438\u0441\u044c \u0442\u0435\u043f\u043b\u043e\u043c',text});return;}if(navigator.share&&link){await navigator.share({title:'\u041f\u043e\u0434\u0435\u043b\u0438\u0441\u044c \u0442\u0435\u043f\u043b\u043e\u043c',text,url:link});return;}if(link&&await writeClipboard(text+' '+link)){toast('\u0422\u0435\u043a\u0441\u0442 \u0438 \u0441\u0441\u044b\u043b\u043a\u0430 \u0441\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u044b');return;}await savePNG();toast('\u041e\u0442\u043a\u0440\u044b\u0442\u043a\u0430 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0430 \u0434\u043b\u044f \u043e\u0442\u043f\u0440\u0430\u0432\u043a\u0438');}catch(e){if(e.name!=='AbortError'){console.error(e);toast('\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043f\u043e\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f');}}}
+$('start').addEventListener('click',()=>setStep(2));$('create').addEventListener('click',()=>setStep(3));$('back-first').addEventListener('click',()=>setStep(1));$('back-choice').addEventListener('click',()=>setStep(2));$('share').addEventListener('click',shareCard);$('download').addEventListener('click',savePNG);
+$('copy').addEventListener('click',async()=>{const u=shareLink();if(!u){toast('\u0421\u0441\u044b\u043b\u043a\u0430 \u0437\u0430\u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u043f\u043e\u0441\u043b\u0435 \u043f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u0438 \u0441\u0430\u0439\u0442\u0430');return;}if(await writeClipboard(u))toast('\u0421\u0441\u044b\u043b\u043a\u0430 \u0441\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0430');else toast('Copy failed');});
+document.querySelectorAll('.mood').forEach(el=>el.addEventListener('click',()=>setWish(el.dataset.wish)));
+window.addEventListener('resize',repositionStage);
+Promise.all([loadImg(PHOTO.calm),loadImg(PHOTO.close),loadImg('divan-logo.png')]).then(images=>{PHOTO_IMAGE.calm=images[0];PHOTO_IMAGE.close=images[1];PHOTO_IMAGE.logo=images[2];const incoming=new URLSearchParams(location.search).get('wish');if(PHOTO[incoming]){received=true;setWish(incoming);setStep(3);receiverView(true);}else drawCard();}).catch(e=>{console.error(e);toast('Image load failed');});
+</script>
+</body>
+</html>
