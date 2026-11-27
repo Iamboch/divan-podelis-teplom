@@ -82,6 +82,7 @@ h1 em{font-style:normal;color:#81917c}h1 .tiny-heart{display:inline-block;font-s
 .mood .mood-icon{height:57px;width:57px;border-radius:9px;flex:none;background-size:cover;background-position:center;box-shadow:0 1px 3px rgba(10,10,10,.06)}
 .mood[data-wish="calm"] .mood-icon{background-image:url("calm.jpg");font-size:0}
 .mood[data-wish="close"] .mood-icon{background-image:url("together.jpg");font-size:0}
+.mood[data-wish="care"] .mood-icon{background-image:url("care.jpg");font-size:0}
 .mood{padding:11px;min-height:80px;border-radius:12px;gap:14px}
 .mood-options{max-width:500px}
 .mood strong{font-size:16px}
@@ -109,10 +110,11 @@ h1 em{font-style:normal;color:#81917c}h1 .tiny-heart{display:inline-block;font-s
 <div id="step-2">
 <p id="eyebrow">Выберите то, чем хочется поделиться</p>
 <h1>Что передадим <em>дальше?</em></h1>
-<p class="lead">У каждого тепла — свой характер. Выберите пожелание: маленькая комната изменится вместе с ним.</p>
+<p class="lead">У каждого тепла — свой характер. Выберите пожелание — и получите открытку, которую можно передать дальше.</p>
 <div class="mood-options" role="radiogroup" aria-label="Выберите пожелание">
 <button class="mood selected" role="radio" aria-checked="true" data-wish="calm"><span class="mood-icon">✳</span><span><strong>Побольше спокойных вечеров</strong><small>Свет потише, дела подождут</small></span><span class="tick" aria-hidden="true">✓</span></button>
 <button class="mood" role="radio" aria-checked="false" data-wish="close"><span class="mood-icon">♡</span><span><strong>Побольше встреч с близкими</strong><small>Время побыть вместе</small></span><span class="tick" aria-hidden="true">✓</span></button>
+<button class="mood" role="radio" aria-checked="false" data-wish="care"><span class="mood-icon">✳</span><span><strong>Пусть забота чувствуется в мелочах</strong><small>В каждом маленьком жесте</small></span><span class="tick" aria-hidden="true">✓</span></button>
 </div>
 <div class="action-row"><button class="btn btn-dark" id="create">Собрать открытку <span class="btn-icon" aria-hidden="true">↗</span></button><button class="btn-link" id="back-first">Назад</button></div>
 </div>
@@ -141,9 +143,9 @@ h1 em{font-style:normal;color:#81917c}h1 .tiny-heart{display:inline-block;font-s
 const WISHES={
  calm:{short:'побольше спокойных вечеров',lines:['Побольше','спокойных вечеров'],share:'Пусть в новом году будет побольше спокойных вечеров.',color:'#d8ded0',glow:'#ffe1a5'},
  close:{short:'побольше встреч с близкими',lines:['Побольше встреч','с близкими'],share:'Пусть в новом году будет побольше встреч с близкими.',color:'#ead8ce',glow:'#ffb994'},
- soft:{short:'побольше мягких моментов',lines:['Побольше мягких','моментов'],share:'Пусть в новом году будет побольше мягких моментов.',color:'#dee4d3',glow:'#fce0a3'}
+ care:{short:'пусть забота чувствуется в мелочах',lines:['Пусть забота','чувствуется в мелочах'],share:'Пусть в новом году забота чувствуется в мелочах.',color:'#dee4d3',glow:'#fce0a3'}
 };
-const PHOTO={calm:'calm.jpg',close:'together.jpg'};
+const PHOTO={calm:'calm.jpg',close:'together.jpg',care:'care.jpg'};
 const PHOTO_IMAGE={};
 let current='calm',step=1,received=false,toastTimer=null;
 const $=id=>document.getElementById(id);
@@ -156,9 +158,9 @@ function drawCard(){
  if(!im){ctx.fillStyle='#d9d6ce';ctx.fillRect(0,0,2048,2048);return;}
  ctx.drawImage(im,0,0,2048,2048);
  if(step!==3)return;
- const calm=current==='calm';
+ const lightText=current!=='close';
  const gradient=ctx.createLinearGradient(0,0,0,790);
- if(calm){gradient.addColorStop(0,'rgba(21,16,17,.46)');gradient.addColorStop(1,'rgba(21,16,17,0)');}
+ if(lightText){gradient.addColorStop(0,'rgba(21,16,17,.53)');gradient.addColorStop(1,'rgba(21,16,17,0)');}
  else {gradient.addColorStop(0,'rgba(250,240,224,.62)');gradient.addColorStop(1,'rgba(250,240,224,0)');}
  ctx.fillStyle=gradient;ctx.fillRect(0,0,2048,790);
  const x=112;
@@ -167,12 +169,12 @@ function drawCard(){
  ctx.beginPath();ctx.roundRect(x,101,300,100,50);ctx.fill();
  const logo=PHOTO_IMAGE.logo;
  if(logo)ctx.drawImage(logo,142,129,235,235*logo.height/logo.width);
- ctx.fillStyle=calm?'#faf5ea':'#2b2320';
+ ctx.fillStyle=lightText?'#faf5ea':'#2b2320';
  ctx.textAlign='right';ctx.font='500 37px Booklet,Arial,sans-serif';
  ctx.fillText('\u0421 \u041d\u043e\u0432\u044b\u043c 2027 \u0433\u043e\u0434\u043e\u043c!',1940,165);
  ctx.textAlign='left';
  ctx.font='300 112px Booklet,Arial,sans-serif';
- ctx.shadowColor=calm?'rgba(15,15,15,.35)':'rgba(255,255,255,.1)';ctx.shadowBlur=calm?17:0;
+ ctx.shadowColor=lightText?'rgba(15,15,15,.35)':'rgba(255,255,255,.1)';ctx.shadowBlur=lightText?17:0;
  const lines=WISHES[current].lines;
  const maxWidth=1810;
  for(let i=0;i<lines.length;i++)ctx.fillText(lines[i],x,350+i*132,maxWidth);
@@ -193,7 +195,7 @@ $('start').addEventListener('click',()=>setStep(2));$('create').addEventListener
 $('copy').addEventListener('click',async()=>{const u=shareLink();if(!u){toast('\u0421\u0441\u044b\u043b\u043a\u0430 \u0437\u0430\u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u043f\u043e\u0441\u043b\u0435 \u043f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u0438 \u0441\u0430\u0439\u0442\u0430');return;}if(await writeClipboard(u))toast('\u0421\u0441\u044b\u043b\u043a\u0430 \u0441\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0430');else toast('Copy failed');});
 document.querySelectorAll('.mood').forEach(el=>el.addEventListener('click',()=>setWish(el.dataset.wish)));
 window.addEventListener('resize',repositionStage);
-Promise.all([loadImg(PHOTO.calm),loadImg(PHOTO.close),loadImg('divan-logo.png')]).then(images=>{PHOTO_IMAGE.calm=images[0];PHOTO_IMAGE.close=images[1];PHOTO_IMAGE.logo=images[2];const incoming=new URLSearchParams(location.search).get('wish');if(PHOTO[incoming]){received=true;setWish(incoming);setStep(3);receiverView(true);}else drawCard();}).catch(e=>{console.error(e);toast('Image load failed');});
+Promise.all([loadImg(PHOTO.calm),loadImg(PHOTO.close),loadImg(PHOTO.care),loadImg('divan-logo.png')]).then(images=>{PHOTO_IMAGE.calm=images[0];PHOTO_IMAGE.close=images[1];PHOTO_IMAGE.care=images[2];PHOTO_IMAGE.logo=images[3];const incoming=new URLSearchParams(location.search).get('wish');if(PHOTO[incoming]){received=true;setWish(incoming);setStep(3);receiverView(true);}else drawCard();}).catch(e=>{console.error(e);toast('Image load failed');});
 </script>
 </body>
 </html>
